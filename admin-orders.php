@@ -1,12 +1,9 @@
 <?php
 
-
-
 use \Hcode\PageAdmin;
 use \Hcode\Model\User;
 use \Hcode\Model\Order;
 use \Hcode\Model\OrderStatus;
-
 
 $app->get("/admin/orders/:idorder/status", function($idorder){
 
@@ -14,9 +11,7 @@ $app->get("/admin/orders/:idorder/status", function($idorder){
 
 	$order = new Order();
 
-
 	$order->get((int)$idorder);
-
 
 	$page = new PageAdmin();
 
@@ -41,7 +36,6 @@ $app->post("/admin/orders/:idorder/status", function($idorder){
 
 	$order = new Order();
 
-
 	$order->get((int)$idorder);
 
 	$order->setidstatus((int)$_POST['idstatus']);
@@ -52,7 +46,6 @@ $app->post("/admin/orders/:idorder/status", function($idorder){
 
 	header("Location: /admin/orders/".$idorder."/status");
 	exit;
-
 
 });
 
@@ -107,7 +100,6 @@ $app->get("/admin/orders", function(){
 		$pagination = Order::getPage($page);
 
 	}
-	
 
 	$pages = [];
 
