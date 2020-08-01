@@ -261,6 +261,8 @@ $app->post("/checkout", function(){
 
 	$order->save();
 
+	header("Location: /order/".$order->getidorder());
+/*
 	switch ((int)$_POST['payment-method']) {
 
 		case 1:
@@ -271,8 +273,9 @@ $app->post("/checkout", function(){
 		header("Location: /order/".$order->getidorder()."/paypal");
 		break;
 
-	}
+	} */
 	exit;
+
 
 });
 
